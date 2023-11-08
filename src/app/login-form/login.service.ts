@@ -5,7 +5,7 @@ import { of } from 'rxjs';
 const userBack = {
     firstName: 'Juan',
     lastName: 'Perez',
-    email: 'juan.perez@mail.com',
+    email: 'juanito.perez@mail.com',
     password: 'Juan1234'
 }
 
