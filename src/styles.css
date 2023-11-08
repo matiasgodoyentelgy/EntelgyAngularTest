@@ -1,1 +1,51 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: Arial;
+  }
+  
+  .field {
+    display: grid;
+    grid: inherit;
+    grid-gap: inherit;
+    grid-template-columns: 25% auto;
+    margin-bottom: 10px;
+  }
+  
+  .field select {
+    max-width: 200px;
+  }
+  
+  @media (max-width: 400px) {
+    .field {
+      display: grid;
+      grid: inherit;
+      margin-bottom: 1em;
+    }
+    .field label {
+      margin-bottom: 0.3em;
+    }
+    .field select {
+      max-width: 100%;
+    }
+  }
+  
+  .text-right {
+    text-align: right;
+  }
+  .errorBoxAlert {
+    border-style: solid;
+    border-color: red;
+  }
+  .errorMessageAlert {
+    color: red;
+    font-size: 14px;
+  }
+  a {
+    color: blue;
+  }
+  span {
+    width: max-content;
+    margin-left: 100%;
+  }
+  h3{
+    text-align: center;
+  }

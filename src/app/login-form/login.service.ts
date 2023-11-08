@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from './user.model';
-import { Observable, of } from 'rxjs';
+import { of } from 'rxjs';
 
 const userBack = {
     firstName: 'Juan',
@@ -14,11 +14,7 @@ const userBack = {
 })
 export class LoginService {
 
-  login(user: User): Observable<boolean>{
-    return of (user.email == userBack.email && user.password == userBack.password ? true : false);
-  }
-
   register(user: User){
-    return of (user.email == userBack.email  ? true : false);
+    return of (user.email == userBack.email  ? "Error: Email in use" : "Correct!");
   }
 }

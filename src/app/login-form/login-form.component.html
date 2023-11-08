@@ -1,44 +1,94 @@
-<h1>Entelgy Angular Test</h1>
 <span>
-    <h1>Login</h1>
+    <h1>Entelgy Angular Test</h1>
     <h1>Register</h1>
 </span>
 
-<form>
+<form  (ngSubmit)="saveForm(f)" #f="ngForm">
   <div>
-    <div>
-      <label>First name</label>
-      <input type="text" placeholder="First name"/>
+    <div class="form-group field">
+      <label or="inputName">First name</label>
+      <input  
+      id="inputName"
+      name="name"
+      class="form-control"
+      type="text"
+      placeholder="First name"
+      [(ngModel)]="simpleForm.firstName"/>
     </div>
-    <div>
-      <label>Last name</label>
-      <input type="text" placeholder="Last name"/>
+    <div class="form-group field">
+      <label for="inputName">Last name</label>
+      <input
+        id="inputLastName"
+        name="lastName"
+        class="form-control"
+        [(ngModel)]="simpleForm.lastName"
+        type="text"
+        placeholder="Last name"
+      />
+    </div>   
+   
+    <div class="form-group field">
+        <label for="inputEmail">Email</label>
+        <input 
+        id="inputEmail"
+        name="email"
+        class="form-control"
+        [(ngModel)]="simpleForm.email"
+        [ngClass]="{ errorBoxAlert: showErrors && !simpleForm.email }"
+        type="text"
+        placeholder="Email"
+        required
+        />
+        <span class="errorMessageAlert" *ngIf="showErrors && !simpleForm.email"
+        >* Email is required</span>
     </div>
-    <!-- TODO: add error message -->
-    <div>
-        <label>Email</label>
-        <input type="email" placeholder="Last name"/>
+    <div class="form-group field">
+        <label for="inputPassword">Password</label>
+        <input 
+        type="password"
+        placeholder="Password"
+        id="inputPassword"
+        name="password"
+        class="form-control"
+        [(ngModel)]="simpleForm.password"
+        [ngClass]="{ errorBoxAlert: showErrors && !simpleForm.password }"
+        required
+        />
+        <span class="errorMessageAlert" *ngIf="showErrors && !simpleForm.password"
+        >* Password is required</span>
     </div>
-    <div>
-        <label>Password</label>
-        <input type="text" placeholder="Password"/>
-    </div>
-    <div>
+    <div class="form-group field">
         <label>Confirm Password</label>
-        <input type="text" placeholder="Confirm Password"/>
+        <input 
+        type="password"
+        placeholder="Confirm Password"
+        id="inputPassword2"
+        name="password2"
+        class="form-control"
+        [(ngModel)]="simpleForm.password2"
+        />
+        <span class="errorMessageAlert" *ngIf="simpleForm.password !== simpleForm.password2">
+          * The passwords are direfents</span>
     </div>
-     <!-- TODO: add error message -->
-    <span></span>
+   
+    <br/>
     <div>
-      <input type="checkbox"/>
+      <input
+      id="inputAcceptTerms"
+      name="acceptTerms"
+      class="form-control"
+      [(ngModel)]="simpleForm.acceptTerms"
+      type="checkbox"
+    />
       <label>I accept the terms & conditions</label>
     </div>
-    <div>
-        <a>Register</a>
-        <a>Login</a>
-    </div>
-    <div>
-      <button>Submit</button>
+    <br/>
+    <div class="text-right">
+      <button type="submit" [disabled]="!simpleForm.acceptTerms">Submit</button>
     </div>
   </div>
 </form>
+
+<span>
+  <h3>{{serviceResponse}}</h3>
+</span>
